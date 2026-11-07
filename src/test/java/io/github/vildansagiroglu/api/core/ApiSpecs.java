@@ -37,7 +37,9 @@ public final class ApiSpecs {
         return new RequestSpecBuilder()
                 .setBaseUri(baseUrl)
                 .setContentType(ContentType.JSON)
-                .setAccept(ContentType.JSON)
+                // Plain "application/json": Restful-Booker answers 418 to RestAssured's
+                // default multi-value JSON Accept header
+                .setAccept("application/json")
                 .build();
     }
 }
